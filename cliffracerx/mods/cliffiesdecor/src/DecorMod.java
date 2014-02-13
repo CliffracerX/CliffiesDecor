@@ -2,6 +2,8 @@ package cliffracerx.mods.cliffiesdecor.src;
 
 import sanandreasp.mods.ClaySoldiersMod.registry.SoldierTeams;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockFluid;
+import net.minecraft.block.BlockStationary;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -370,7 +372,7 @@ public class DecorMod
             Material.water, "pWater").setHardness(0.25F)
             .setStepSound(Block.soundClothFootstep)
             .setUnlocalizedName("pWater").setCreativeTab(tab);
-    public final static Block pLava = new DecorModBlockNoclip(1081,
+    public final static Block pLava = new DecorModBlockNoclip(1082,
             Material.lava, "pLava").setHardness(0.25F)
             .setStepSound(Block.soundClothFootstep)
             .setUnlocalizedName("pLava").setCreativeTab(tab).setLightValue(1.0F);
