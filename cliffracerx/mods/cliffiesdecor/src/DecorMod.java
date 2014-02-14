@@ -23,8 +23,11 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 @Mod(modid = "DecorMod", name = "Cliffie's Decorations",
         version = "Alpha 0.01a")
@@ -376,6 +379,23 @@ public class DecorMod
             Material.lava, "pLava").setHardness(0.25F)
             .setStepSound(Block.soundClothFootstep)
             .setUnlocalizedName("pLava").setCreativeTab(tab).setLightValue(1.0F);
+    public static Block lightSource = new BlockInvisibleLight(1083);
+    public final static Item rBoat = new ItemNewBoat(5000, 0, "rBoat").setUnlocalizedName("rBoat");
+    public final static Item oBoat = new ItemNewBoat(5001, 1, "oBoat").setUnlocalizedName("oBoat");
+    public final static Item yBoat = new ItemNewBoat(5002, 2, "yBoat").setUnlocalizedName("yBoat");
+    public final static Item lBoat = new ItemNewBoat(5003, 3, "lBoat").setUnlocalizedName("lBoat");
+    public final static Item gBoat = new ItemNewBoat(5004, 4, "gBoat").setUnlocalizedName("gBoat");
+    public final static Item cBoat = new ItemNewBoat(5005, 5, "cBoat").setUnlocalizedName("cBoat");
+    public final static Item bBoat = new ItemNewBoat(5006, 6, "bBoat").setUnlocalizedName("bBoat");
+    public final static Item pBoat = new ItemNewBoat(5007, 7, "pBoat").setUnlocalizedName("pBoat");
+    public final static Item rCanopBoat = new ItemNewCanopBoat(5008, 0, "rBoat").setUnlocalizedName("rCanopBoat");
+    public final static Item oCanopBoat = new ItemNewCanopBoat(5009, 1, "oBoat").setUnlocalizedName("oCanopBoat");
+    public final static Item yCanopBoat = new ItemNewCanopBoat(5010, 2, "yBoat").setUnlocalizedName("yCanopBoat");
+    public final static Item lCanopBoat = new ItemNewCanopBoat(5011, 3, "lBoat").setUnlocalizedName("lCanopBoat");
+    public final static Item gCanopBoat = new ItemNewCanopBoat(5012, 4, "gBoat").setUnlocalizedName("gCanopBoat");
+    public final static Item cCanopBoat = new ItemNewCanopBoat(5013, 5, "cBoat").setUnlocalizedName("cCanopBoat");
+    public final static Item bCanopBoat = new ItemNewCanopBoat(5014, 6, "bBoat").setUnlocalizedName("bCanopBoat");
+    public final static Item pCanopBoat = new ItemNewCanopBoat(5015, 7, "pBoat").setUnlocalizedName("pCanopBoat");
     
     ResourceLocation[][] res = new ResourceLocation[][]
     { // custom clay soldier textures
@@ -429,14 +449,16 @@ public class DecorMod
     }
     
     @EventHandler
+    @SideOnly(Side.CLIENT)
     public void load(FMLInitializationEvent event)
     {
-        
+        ClientProxy.registerRenderers();
     }
     
     @EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
+        //Block naming and registering
         LanguageRegistry.addName(DMlawnBlock, "Decor Mod Lawn");
         GameRegistry.registerBlock(DMlawnBlock, "DMlawnBlock");
         LanguageRegistry.addName(DMHedge, "Decor Mod Hedge");
@@ -601,6 +623,24 @@ public class DecorMod
         GameRegistry.registerBlock(pWater, "pWater");
         LanguageRegistry.addName(pLava, "Purple Lava");
         GameRegistry.registerBlock(pLava, "pLava");
+        //Item naming
+        LanguageRegistry.addName(rBoat, "Red Boat Item");
+        LanguageRegistry.addName(oBoat, "Orange Boat Item");
+        LanguageRegistry.addName(yBoat, "Yellow Boat Item");
+        LanguageRegistry.addName(lBoat, "Lime Boat Item");
+        LanguageRegistry.addName(gBoat, "Green Boat Item");
+        LanguageRegistry.addName(cBoat, "Cyan Boat Item");
+        LanguageRegistry.addName(bBoat, "Blue Boat Item");
+        LanguageRegistry.addName(pBoat, "Purple Boat Item");
+        LanguageRegistry.addName(rCanopBoat, "Red CanopBoat Item");
+        LanguageRegistry.addName(oCanopBoat, "Orange CanopBoat Item");
+        LanguageRegistry.addName(yCanopBoat, "Yellow CanopBoat Item");
+        LanguageRegistry.addName(lCanopBoat, "Lime CanopBoat Item");
+        LanguageRegistry.addName(gCanopBoat, "Green CanopBoat Item");
+        LanguageRegistry.addName(cCanopBoat, "Cyan CanopBoat Item");
+        LanguageRegistry.addName(bCanopBoat, "Blue CanopBoat Item");
+        LanguageRegistry.addName(pCanopBoat, "Purple CanopBoat Item");
+        //Custom clay soldiers
         if (Loader.isModLoaded("ClaySoldiersMod"))
         {
             try
@@ -619,5 +659,10 @@ public class DecorMod
                 e.printStackTrace(System.err);
             }
         }
+        //Register entities
+        EntityRegistry.registerModEntity(EntityCustomDecorBoat.class,
+                "CliffiesDecor_Boat", 0, this, 64, 1, true);
+        EntityRegistry.registerModEntity(EntityDecorCanopBoat.class,
+                "CliffiesDecor_Boat_Canopy", 1, this, 64, 1, true);
     }
 }

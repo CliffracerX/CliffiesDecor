@@ -2,7 +2,7 @@ package cliffracerx.mods.cliffiesdecor.src;
 
 public class CommonProxy
 {
-    public void registerRenderers()
+    public static void registerRenderers()
     {
         
     }
