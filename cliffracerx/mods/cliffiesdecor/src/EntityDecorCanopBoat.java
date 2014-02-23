@@ -261,6 +261,7 @@ public class EntityDecorCanopBoat extends Entity
                 this.sleepingTimer=0;
                 this.setSize(2.0F, 0.8F);
                 this.ridingPlayer.sleepTimer=0;
+                //this.ridingPlayer.isSleeping=false;
             }
         }
         else

@@ -396,6 +396,15 @@ public class DecorMod
     public final static Item cCanopBoat = new ItemNewCanopBoat(5013, 5, "cBoat").setUnlocalizedName("cCanopBoat");
     public final static Item bCanopBoat = new ItemNewCanopBoat(5014, 6, "bBoat").setUnlocalizedName("bCanopBoat");
     public final static Item pCanopBoat = new ItemNewCanopBoat(5015, 7, "pBoat").setUnlocalizedName("pCanopBoat");
+    public final static Item mover = new ItemMover(5016, "mover").setUnlocalizedName("mover");
+    public final static Item rDude = new ItemDude(5017, 0, "rDude").setUnlocalizedName("rDude");
+    public final static Item oDude = new ItemDude(5018, 1, "oDude").setUnlocalizedName("oDude");
+    public final static Item yDude = new ItemDude(5019, 2, "yDude").setUnlocalizedName("yDude");
+    public final static Item lDude = new ItemDude(5020, 3, "lDude").setUnlocalizedName("lDude");
+    public final static Item gDude = new ItemDude(5021, 4, "gDude").setUnlocalizedName("gDude");
+    public final static Item cDude = new ItemDude(5022, 5, "cDude").setUnlocalizedName("cDude");
+    public final static Item bDude = new ItemDude(5023, 6, "bDude").setUnlocalizedName("bDude");
+    public final static Item pDude = new ItemDude(5024, 7, "pDude").setUnlocalizedName("pDude");
     
     ResourceLocation[][] res = new ResourceLocation[][]
     { // custom clay soldier textures
@@ -664,5 +673,9 @@ public class DecorMod
                 "CliffiesDecor_Boat", 0, this, 64, 1, true);
         EntityRegistry.registerModEntity(EntityDecorCanopBoat.class,
                 "CliffiesDecor_Boat_Canopy", 1, this, 64, 1, true);
+        EntityRegistry.registerModEntity(EntityDude.class,
+                "DudeOfDecor", 2, this, 64, 1, true);
+        EntityRegistry.registerModEntity(EntityFlag.class,
+                "MoveFlag", 3, this, 64, 1, true);
     }
 }
