@@ -61,11 +61,6 @@ public class ItemMover extends Item
                 {
                     ((EntityLiving)entity).setCustomNameTag(par1ItemStack.getDisplayName());
                 }
-
-                if (!par2EntityPlayer.capabilities.isCreativeMode)
-                {
-                    --par1ItemStack.stackSize;
-                }
             }
 
             return true;

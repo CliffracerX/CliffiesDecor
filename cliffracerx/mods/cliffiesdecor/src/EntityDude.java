@@ -439,13 +439,14 @@ public class EntityDude extends EntityCreature
         
         public void removeItem(EntityPlayer par1EntityPlayer)
         {
-            if(par1EntityPlayer.capabilities.isCreativeMode==false)
+            /*if(par1EntityPlayer.capabilities.isCreativeMode==false)
             {
             if(par1EntityPlayer.inventory.mainInventory[par1EntityPlayer.inventory.currentItem].stackSize>1)
             par1EntityPlayer.inventory.mainInventory[par1EntityPlayer.inventory.currentItem].stackSize--;
             else
                 par1EntityPlayer.inventory.mainInventory[par1EntityPlayer.inventory.currentItem]=null;
-            }
+            }*/
+            //Don't lose items any more,should making equipping battalions of dudes in survival less of a pain.
         }
         
         /**
@@ -453,9 +454,9 @@ public class EntityDude extends EntityCreature
          */
         public EntityItem dropItem(ItemStack par1, int par2)
         {
-            if(par1!=null && !this.worldObj.isRemote)
+            /*if(par1!=null && !this.worldObj.isRemote)
             return this.dropItemWithOffset(par1, par2, 0.0F);
-            else
+            else*/
             return null;
         }
         
